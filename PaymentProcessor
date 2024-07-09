@@ -1,0 +1,37 @@
+public class PaymentProcessor {
+    public void processPayment(String paymentType) {
+        if (paymentType.equals("credit")) {
+            // Lógica para procesar el pago con tarjeta de crédito
+        } else if (paymentType.equals("paypal")) {
+            // Lógica para procesar el pago con PayPal
+        }
+    }
+}
+
+//correccion
+
+public class PaymentProcessor {
+    public void processPayment(PaymentMethod paymentMethod) {
+        paymentMethod.processPayment();
+    }
+}
+
+public interface PaymentMethod{
+    void processPayment();
+}
+
+public class CreditCardPayment implements PaymentMethod {
+    @Override
+    public void processPayment() {
+        // Lógica para procesar el pago con tarjeta de crédito
+        System.out.println("Procesando pago con tarjeta de crédito");
+    }
+}
+
+public class PayPalPayment implements PaymentMethod {
+    @Override
+    public void processPayment() {
+        // Lógica para procesar el pago con PayPal
+        System.out.println("Procesando pago con PayPal");
+    }
+}
